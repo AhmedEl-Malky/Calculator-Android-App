@@ -13,6 +13,7 @@ import com.elmalky.calculator.Util.infixToPostfix
 import com.elmalky.calculator.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+    var ans = ""
     lateinit var binder: ActivityMainBinding
     override fun onDestroy() {
         super.onDestroy()
@@ -43,7 +44,11 @@ class MainActivity : AppCompatActivity() {
             if (result.last() == '.')
                 result = result.dropLast(1)
             binder.outputResult.text = result
+            ans = result
 
+        }
+        binder.ansBtn.setOnClickListener {
+            binder.inputExpression.text = ans
         }
         binder.apply {
             CBtn.setOnClickListener {
@@ -65,18 +70,22 @@ class MainActivity : AppCompatActivity() {
 
     fun operandClick(v: View) {
         binder.inputExpression.append((v as Button).text)
-        var expression: String? = binder.inputExpression.text.toString()
-        var postfixExpression: String? = infixToPostfix(expression)
-        var result = String.format("%.3f", evaluateExpression(postfixExpression))
-        while (result.last() == '0')
-            result = result.dropLast(1)
-        if (result.last() == '.')
-            result = result.dropLast(1)
-        binder.outputResult.text = result
+        if ((v as Button).text != ".") {
+            var expression: String? = binder.inputExpression.text.toString()
+            var postfixExpression: String? = infixToPostfix(expression)
+            var result = String.format("%.3f", evaluateExpression(postfixExpression))
+
+            while (result.last() == '0')
+                result = result.dropLast(1)
+            if (result.last() == '.')
+                result = result.dropLast(1)
+            binder.outputResult.text = result
+        }
     }
 
     fun operatorClick(v: View) {
-        binder.inputExpression.append((v as Button).text)
+        if (binder.inputExpression.text.isNotEmpty())
+            binder.inputExpression.append((v as Button).text)
     }
 
     override fun recreate() {
