@@ -63,7 +63,7 @@
             android:fontFamily="@font/worksans_regular"
             android:text="C"
             app:layout_constraintBottom_toTopOf="@+id/operand7"
-            app:layout_constraintEnd_toStartOf="@+id/signBtn"
+            app:layout_constraintEnd_toStartOf="@+id/ansBtn"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintHorizontal_chainStyle="spread"
             app:layout_constraintStart_toStartOf="parent"
@@ -71,7 +71,7 @@
             app:layout_constraintVertical_chainStyle="spread_inside" />
 
         <Button
-            android:id="@+id/signBtn"
+            android:id="@+id/ansBtn"
             style="@style/s_operator_btn"
             android:layout_marginBottom="16dp"
             android:fontFamily="@font/worksans_regular"
@@ -95,7 +95,7 @@
             app:layout_constraintBottom_toTopOf="@+id/operand9"
             app:layout_constraintEnd_toStartOf="@+id/divBtn"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/signBtn"
+            app:layout_constraintStart_toEndOf="@+id/ansBtn"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
             app:layout_constraintVertical_chainStyle="spread_inside" />
@@ -188,7 +188,7 @@
             app:layout_constraintEnd_toStartOf="@+id/operand9"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/operand7"
-            app:layout_constraintTop_toBottomOf="@+id/signBtn"
+            app:layout_constraintTop_toBottomOf="@+id/ansBtn"
             app:layout_constraintVertical_bias="0.0" />
 
         <Button
