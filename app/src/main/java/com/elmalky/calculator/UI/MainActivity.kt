@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
 import com.elmalky.calculator.Util.evaluateExpression
 import com.elmalky.calculator.Util.infixToPostfix
+import com.elmalky.calculator.Util.isOperator
 import com.elmalky.calculator.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -84,8 +85,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun operatorClick(v: View) {
-        if (binder.inputExpression.text.isNotEmpty())
+        if (binder.inputExpression.text.isNotEmpty()) {
+            if (isOperator(binder.inputExpression.text.last()))
+                binder.inputExpression.text = binder.inputExpression.text.dropLast(1)
             binder.inputExpression.append((v as Button).text)
+        }
     }
 
     override fun recreate() {
