@@ -11,6 +11,10 @@ import com.elmalky.calculator.Util.evaluateExpression
 import com.elmalky.calculator.Util.infixToPostfix
 import com.elmalky.calculator.Util.isOperator
 import com.elmalky.calculator.databinding.ActivityMainBinding
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class MainActivity : AppCompatActivity() {
     var ans = ""
@@ -46,15 +50,20 @@ class MainActivity : AppCompatActivity() {
             binder.outputResult.text = "0"
         else {
             try {
-                var expression: String? = binder.inputExpression.text.toString()
-                var postfixExpression: String? = infixToPostfix(expression)
-                var result = String.format("%.3f", evaluateExpression(postfixExpression))
+                var result: String
+                GlobalScope.launch(Dispatchers.Default) {
+                    result = expressionEvaluation()
 
-                while (result.last() == '0')
-                    result = result.dropLast(1)
-                if (result.last() == '.')
-                    result = result.dropLast(1)
-                binder.outputResult.text = result
+                    while (result.last() == '0')
+                        result = result.dropLast(1)
+                    if (result.last() == '.')
+                        result = result.dropLast(1)
+                    withContext(Dispatchers.Default) {
+                        binder.outputResult.text = result
+                    }
+
+                }
+
             } catch (e: Exception) {
             }
         }
@@ -66,19 +75,33 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun equalBtnClick() {
-        var expression: String? = binder.inputExpression.text.toString()
-        var postfixExpression: String? = infixToPostfix(expression)
-        var result = String.format("%.3f", evaluateExpression(postfixExpression))
-        if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES)
-            binder.outputResult.setTextColor(ContextCompat.getColor(this, R.color.white))
-        else
-            binder.outputResult.setTextColor(ContextCompat.getColor(this, R.color.black))
-        while (result.last() == '0')
-            result = result.dropLast(1)
-        if (result.last() == '.')
-            result = result.dropLast(1)
-        binder.outputResult.text = result
-        ans = result
+        var result: String
+        GlobalScope.launch(Dispatchers.Default) {
+            result = expressionEvaluation()
+            withContext(Dispatchers.Main) {
+                if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES)
+                    binder.outputResult.setTextColor(
+                        ContextCompat.getColor(
+                            this@MainActivity,
+                            R.color.white
+                        )
+                    )
+                else
+                    binder.outputResult.setTextColor(
+                        ContextCompat.getColor(
+                            this@MainActivity,
+                            R.color.black
+                        )
+                    )
+                while (result.last() == '0')
+                    result = result.dropLast(1)
+                if (result.last() == '.')
+                    result = result.dropLast(1)
+                binder.outputResult.text = result
+                ans = result
+            }
+        }
+
     }
 
     private fun ansBtnClick() {
@@ -95,16 +118,21 @@ class MainActivity : AppCompatActivity() {
     fun operandClick(v: View) {
         binder.inputExpression.append((v as Button).text)
         if ((v as Button).text != ".") {
-            var expression: String? = binder.inputExpression.text.toString()
-            var postfixExpression: String? = infixToPostfix(expression)
-            var result = String.format("%.3f", evaluateExpression(postfixExpression))
+            var result: String
+            GlobalScope.launch(Dispatchers.Default) {
+                result = expressionEvaluation()
+                while (result.last() == '0')
+                    result = result.dropLast(1)
+                if (result.last() == '.')
+                    result = result.dropLast(1)
+                withContext(Dispatchers.Main) {
+                    binder.outputResult.text = result
+                }
 
-            while (result.last() == '0')
-                result = result.dropLast(1)
-            if (result.last() == '.')
-                result = result.dropLast(1)
-            binder.outputResult.text = result
+            }
         }
+
+
     }
 
     fun operatorClick(v: View) {
@@ -113,6 +141,13 @@ class MainActivity : AppCompatActivity() {
                 binder.inputExpression.text = binder.inputExpression.text.dropLast(1)
             binder.inputExpression.append((v as Button).text)
         }
+    }
+
+    suspend fun expressionEvaluation(): String {
+        var expression: String? = binder.inputExpression.text.toString()
+        var postfixExpression: String? = infixToPostfix(expression)
+        var result = String.format("%.3f", evaluateExpression(postfixExpression))
+        return result
     }
 
     override fun recreate() {
