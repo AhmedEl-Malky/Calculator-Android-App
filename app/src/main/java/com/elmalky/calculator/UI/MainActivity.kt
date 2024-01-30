@@ -58,6 +58,23 @@ class MainActivity : AppCompatActivity() {
             }
             delBtn.setOnClickListener {
                 inputExpression.text = inputExpression.text.dropLast(1)
+                if (binder.inputExpression.text.isEmpty())
+                    binder.outputResult.text = "0"
+                else {
+                    try {
+                        var expression: String? = binder.inputExpression.text.toString()
+                        var postfixExpression: String? = infixToPostfix(expression)
+                        var result = String.format("%.3f", evaluateExpression(postfixExpression))
+
+                        while (result.last() == '0')
+                            result = result.dropLast(1)
+                        if (result.last() == '.')
+                            result = result.dropLast(1)
+                        binder.outputResult.text = result
+                    } catch (e: Exception) {
+                    }
+                }
+
             }
         }
     }
