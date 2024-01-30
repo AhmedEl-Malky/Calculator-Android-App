@@ -2,7 +2,6 @@ package com.elmalky.calculator.UI
 
 import android.R
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
@@ -16,14 +15,8 @@ import com.elmalky.calculator.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
     var ans = ""
     lateinit var binder: ActivityMainBinding
-    override fun onDestroy() {
-        super.onDestroy()
-        Log.i("Destroy", "destroy")
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.i("create", "cre")
         binder = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binder.root)
         AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM
