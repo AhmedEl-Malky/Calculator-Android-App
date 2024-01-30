@@ -1,0 +1,42 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="221"
+    android:viewportHeight="221">
+    <group
+        android:scaleX="0.67"
+        android:scaleY="0.67"
+        android:translateX="36.465"
+        android:translateY="36.465">
+        <path
+            android:fillColor="#E5E5E5"
+            android:pathData="M0,0h221v221h-221z" />
+        <path
+            android:fillColor="#17171C"
+            android:pathData="M0,0h221v221h-221z" />
+        <path
+            android:fillColor="#D2D3DA"
+            android:pathData="M141,29L164.75,29A24,24 0,0 1,188.75 53L188.75,77A24,24 0,0 1,164.75 101L141,101A24,24 0,0 1,117 77L117,53A24,24 0,0 1,141 29z" />
+        <path
+            android:fillColor="#000000"
+            android:pathData="M161,66.43V68.83H145V66.43H161Z" />
+        <path
+            android:fillColor="#D2D3DA"
+            android:pathData="M58,29L81.75,29A24,24 0,0 1,105.75 53L105.75,77A24,24 0,0 1,81.75 101L58,101A24,24 0,0 1,34 77L34,53A24,24 0,0 1,58 29z" />
+        <path
+            android:fillColor="#000000"
+            android:pathData="M71.22,57.95V73.82H68.82V57.95H71.22ZM77.78,64.67V67.07H62.23V64.67H77.78Z" />
+        <path
+            android:fillColor="#4B5EFC"
+            android:pathData="M141,121L164.75,121A24,24 0,0 1,188.75 145L188.75,169A24,24 0,0 1,164.75 193L141,193A24,24 0,0 1,117 169L117,145A24,24 0,0 1,141 121z" />
+        <path
+            android:fillColor="#ffffff"
+            android:pathData="M160.62,153.89V156.29H145.39V153.89H160.62ZM160.62,160.29V162.69H145.39V160.29H160.62Z" />
+        <path
+            android:fillColor="#D2D3DA"
+            android:pathData="M58,121L81.75,121A24,24 0,0 1,105.75 145L105.75,169A24,24 0,0 1,81.75 193L58,193A24,24 0,0 1,34 169L34,145A24,24 0,0 1,58 121z" />
+        <path
+            android:fillColor="#000000"
+            android:pathData="M75.35,164.9L62.94,152.48L64.63,150.78L77.05,163.2L75.35,164.9ZM64.63,164.9L62.94,163.2L75.35,150.78L77.05,152.48L64.63,164.9Z" />
+    </group>
+</vector>

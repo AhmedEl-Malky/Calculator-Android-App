@@ -3,6 +3,7 @@
     <style name="Base.Theme.Calculator" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="android:statusBarColor">@color/lightBackground</item>
     </style>
 
     <style name="layout">

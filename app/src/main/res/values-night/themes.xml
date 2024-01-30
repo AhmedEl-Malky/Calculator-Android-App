@@ -3,6 +3,7 @@
     <style name="Base.Theme.Calculator" parent="Theme.AppCompat.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="android:statusBarColor">@color/background</item>
     </style>
 
     <style name="layout">
