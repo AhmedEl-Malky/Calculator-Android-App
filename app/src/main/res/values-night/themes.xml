@@ -10,9 +10,8 @@
     </style>
 
     <style name="inputText">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginTop">120dp</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
         <item name="android:background">@color/background</item>
         <item name="android:gravity">end</item>
         <item name="android:textColor">@color/shadeGray</item>
@@ -20,9 +19,8 @@
     </style>
 
     <style name="outputText">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
         <item name="android:background">@color/background</item>
         <item name="android:gravity">end</item>
         <item name="android:textColor">#bdbec4</item>
@@ -31,8 +29,8 @@
 
     <style name="s_operator_btn" parent="Widget.AppCompat.Button">
         <item name="android:background">@drawable/s_operator_selector_dark</item>
-        <item name="android:layout_width">61.75dp</item>
-        <item name="android:layout_height">62dp</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
         <item name="android:gravity">center</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">32sp</item>
@@ -40,8 +38,8 @@
 
     <style name="operator_btn" parent="Widget.AppCompat.Button">
         <item name="android:background">@drawable/operator_selector</item>
-        <item name="android:layout_width">61.75dp</item>
-        <item name="android:layout_height">62dp</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
         <item name="android:gravity">center</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">32sp</item>
@@ -50,8 +48,8 @@
 
     <style name="operand_btn" parent="Widget.AppCompat.Button">
         <item name="android:background">@drawable/operand_selector_dark</item>
-        <item name="android:layout_width">61.75dp</item>
-        <item name="android:layout_height">62dp</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
         <item name="android:gravity">center</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">32sp</item>
