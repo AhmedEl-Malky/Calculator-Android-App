@@ -12,5 +12,11 @@ developed using:<br>
 <img align="right" width="380px" height="880px" src="https://github.com/AhmedEl-Malky/Calculator-Android-App/assets/130024306/664bf5bc-20d1-471a-935c-986b6f2fbb31"/>  
 </div>
 
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+## For Full preview
+https://www.linkedin.com/posts/ahmed-elmalky-626276272_as-a-comeback-lets-start-with-android-activity-7158513977587609601-jSTC?utm_source=share&utm_medium=member_desktop
+
+
 
 
